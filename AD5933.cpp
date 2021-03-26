@@ -353,6 +353,8 @@ byte AD5933::readRegister(byte reg) {
  * @param range The output voltage range to select.
  * @return Success or failure
  */
+
+/**
 bool AD5933::setRange(byte range)
 {
     byte val;
@@ -393,6 +395,7 @@ bool AD5933::setRange(byte range)
     //Write to register
     return sendByte(CTRL_REG1, val);
 }
+*/
 
 /**
  * Read the value of the status register.

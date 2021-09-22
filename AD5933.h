@@ -133,8 +133,8 @@ class AD5933 {
 
         // Perform frequency sweeps
         static bool frequencySweep(int real[], int imag[], int);
-        static bool calibrate(double gain[], int phase[], int ref, int n);
-        static bool calibrate(double gain[], int phase[], int real[],
+        static bool calibrate(double gain[], double phase[], int ref, int n);
+        static bool calibrate(double gain[], double phase[], int real[],
                               int imag[], int ref, int n);
     private:
         // Private data

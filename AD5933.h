@@ -107,9 +107,9 @@ class AD5933 {
         bool setSettlingCycles(int);
 
         // Frequency sweep configuration
-        static bool setStartFrequency(unsigned long);
-        static bool setIncrementFrequency(unsigned long);
-        static bool setNumberIncrements(unsigned int);
+        static bool setStartFrequency(unsigned long start, unsigned long speed);
+        static bool setIncrementFrequency(unsigned long increment, unsigned long speed);
+        static bool setNumberIncrements(unsigned int num);
 
         // Gain configuration
         static bool setPGAGain(byte);
@@ -138,7 +138,7 @@ class AD5933 {
                               int imag[], int ref, int n);
     private:
         // Private data
-        static const unsigned long clockSpeed = 16776000;
+        unsigned long clockSpeed = 16776000;
 
         // Sending/Receiving byte method, for easy re-use
         static int getByte(byte, byte*);

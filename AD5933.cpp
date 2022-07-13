@@ -234,11 +234,11 @@ bool AD5933::setSettlingCycles(int time)
  * @param start The initial frequency.
  * @return Success or failure
  */
-bool AD5933::setStartFrequency(unsigned long start) {
+bool AD5933::setStartFrequency(unsigned long start, unsigned long speed) {
     // Page 24 of the Datasheet gives the following formula to represent the
     // start frequency.
     // TODO: Precompute for better performance if we want to keep this constant.
-    long freqHex = (start / (clockSpeed / 4.0))*pow(2, 27);
+    long freqHex = (start / (speed / 4.0))*pow(2, 27);
     if (freqHex > 0xFFFFFF) {
         return false;   // overflow
     }
@@ -260,11 +260,11 @@ bool AD5933::setStartFrequency(unsigned long start) {
  * @param start The frequency to increment by. Max of 0xFFFFFF.
  * @return Success or failure
  */
-bool AD5933::setIncrementFrequency(unsigned long increment) {
+bool AD5933::setIncrementFrequency(unsigned long increment, unsigned long speed) {
     // Page 25 of the Datasheet gives the following formula to represent the
     // increment frequency.
     // TODO: Precompute for better performance if we want to keep this constant.
-    long freqHex = (increment / (clockSpeed / 4.0))*pow(2, 27);
+    long freqHex = (increment / (speed / 4.0))*pow(2, 27);
     if (freqHex > 0xFFFFFF) {
         return false;   // overflow
     }
